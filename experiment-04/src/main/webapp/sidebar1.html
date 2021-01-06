@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            /*padding(内边距) 和 border(边框) 也包含在 width 和 height 中:*/
+            box-sizing: border-box;
+        }
+        /* 左侧边栏容器宽度 */
+        aside {
+            width: 300px;
+            background: aliceblue;
+        }
+        /* 导航标题 */
+        .sidebar > h2 {
+            padding:  15px 20px;
+            background: dodgerblue;
+            color: white;
+        }
+        /* 添加标题悬浮样式 */
+        .sidebar > h2:hover {
+        /*一些不同的光标：*/
+            cursor: pointer;
+            background: black;
+        }
+        /* 初始化时，将二级菜单隐藏，滑动时jquery自动修改display属性 */
+        .sidebar ul {
+            display: none;
+        }
+        /* 二级菜单样式 */
+        .sidebar li a {
+            /*此元素将显示为块级元素，此元素前后会带有换行符*/
+            /*inline:默认,此元素会被显示为内联元素，元素前后没有换行符。*/
+            display: block;
+            color: black;
+            /*    允许对文本设置某种效果，如加下划线*/
+            text-decoration: none;
+            padding: 10px 20px;
+        }
+        /* 二级菜单悬浮样式 */
+        aside li a:hover{
+        /*    font-weight 属性设置文本的粗细*/
+            font-weight: bold;
+            background-color: gray;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<aside>
+    <div class="sidebar">
+        <h2>云技术管理</h2>
+        <ul>
+            <li><a href="#">cloudSever</a></li>
+            <li><a href="#">cloudDB</a></li>
+            <li><a href="#">minus</a></li>
+        </ul>
+        <h2>安全管理</h2>
+        <ul>
+            <li><a href="#">cloudSever</a></li>
+            <li><a href="#">cloudSever</a></li>
+            <li><a href="#">cloudSever</a></li>
+        </ul>
+    </div>
+</aside>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(function () {
+        $(".sidebar >h2").click($(function () {
+            // 被点击标题之后的ul元素，与标题平级
+            let ul = $(this).next("ul")
+            // 此二级导航，滑动切换
+            //通过使用滑动效果（高度变化）来切换元素的可见状态
+            //如果被选元素是可见的，则隐藏这些元素，如果被选元素是隐藏的，则显示这些元素。
+            ul.slideToggle();
+            // 其他二级导航，排除当前导航，全部滑上
+            $(".sidebar > ul").not(ul).slideUp();
+        }))
+    })
+</script>
+</body>
+</html>

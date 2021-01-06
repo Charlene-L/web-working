@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="">
+    <div>
+        <p>个人信息</p>
+<!--        通过label标签控制文本可点击-->
+        <lable>用户名：</lable>
+        <input type="text" required>
+        <br>
+        <label>密码：</label>
+        <input type="password" required>
+        <br>
+        <label>性别：</label>
+        <input type="radio" name="gander">男
+        <input type="radio" name="gander">女
+        <br>
+        <label>生日：</label>
+        <input type="date" id="birthday">
+        <br>
+        <!-- <datalist> 元素规定输入域的选项列表。
+     <datalist> 属性规定 form 或 input 域应该拥有自动完成功能。
+     当用户在自动完成域中开始输入时，浏览器应该在该域中显示填写的选项：
+    使用 <input> 元素的列表属性与 <datalist> 元素绑定.-->
+
+<!--        使用input的list属性来绑定datalist-->
+        <lable>籍贯：</lable>
+        <input list="province">
+        <datalist id="province">
+            <option value="哈尔滨"></option>
+            <option value="沈阳"></option>
+            <option value="长春"></option>
+        </datalist>
+        <br>
+        <label >学历</label>
+        <select>
+            <option selected>学士</option>
+            <option>硕士</option>
+            <option>博士</option>
+        </select>
+        <br>
+    </div>
+
+    <div>
+        <p>其他信息</p>
+        <label>喜欢的课程：</label>
+        <ul>
+            <li>
+                <lable><input type="checkbox" checked>Web开发技术</lable>
+            </li>
+            <li>
+                <lable><input type="checkbox">Java程序设计</lable>
+            </li>
+            <li>
+                <lable><input type="checkbox">数据库原理</lable>
+            </li>
+            <li>
+                <lable><input type="checkbox">系统分析与测试</lable>
+            </li>
+
+        </ul>
+        <button>提交</button>
+        <button>重置</button>
+        <pre>注册表单。模拟向地址：/register，发起post请求</pre>
+    </div>
+</form>
+</body>
+</html>
